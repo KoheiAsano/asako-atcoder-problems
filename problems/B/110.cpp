@@ -6,8 +6,8 @@ int N,M,X,Y;
 
 int main(){
 	cin >> N >> M >> X >> Y;
-	int x[N],y[M];
-	int maxx=-100, miny=100;
+	int x[N+1],y[M+1];
+	int maxx=X, miny=Y;
 	for(int i=0;i<N;i++){
 		cin >> x[i];
 		if(maxx < x[i]) maxx=x[i];
@@ -16,7 +16,8 @@ int main(){
 		cin >> y[i];
 		if(miny > y[i]) miny=y[i];
 	}
-	if(maxx  < miny) cout << "No War" << endl;
+
+	if(maxx+1 < miny) cout << "No War" << endl;
 	else cout << "War" << endl;
 	return 0;
 }
