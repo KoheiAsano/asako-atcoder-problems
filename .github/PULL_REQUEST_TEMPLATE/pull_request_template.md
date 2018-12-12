@@ -1,3 +1,12 @@
+---
+name: daily
+about: ''
+title: YYYYMMDD
+labels: ''
+assignees: ''
+---
+
+
 ## ひづけ
 
 ## かかった時間
