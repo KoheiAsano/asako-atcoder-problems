@@ -24,6 +24,12 @@ typedef pair<ll,ll> LP;
 double N;
 double ans=0;
 
+void swap(int& a, int& b){
+	int tmp = a;
+	a = b;
+	b = tmp;
+}
+
 
 int main(){
 	cin >> N;
