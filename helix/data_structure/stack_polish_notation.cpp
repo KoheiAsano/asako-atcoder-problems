@@ -6,7 +6,7 @@
 
 
 int top, S[1000];
-
+typedef
 void push(int x){
 	S[++top] = x;
 }
