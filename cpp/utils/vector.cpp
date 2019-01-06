@@ -8,6 +8,14 @@ void print(vector<double> V) {
   cout << endl;
 }
 
+void printByIt(vector<double> V) {
+  vector<double>::iterator it;
+  for(it = V.begin();it != V.end();it++){
+    cout << *it << " ";
+  }
+  cout << endl;
+}
+
 
 int main() {
   vector<double> S;
@@ -16,6 +24,7 @@ int main() {
     S.push_back(i);
   }
   print(S);
+  printByIt(S);
   cout << S.size() << endl;
   S.insert(S.begin() + 4,9);//O(n)
   print(S);
