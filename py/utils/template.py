@@ -1,6 +1,5 @@
 import sys
-# A,B,C = [int(n) for n in input().split()]
-# N = int(input())
+# N,M = [int(n) for n in input().split()]
 # S = str(input())
 # T = str(input())
 a,b,c = [int(n) for n in input().split()]
