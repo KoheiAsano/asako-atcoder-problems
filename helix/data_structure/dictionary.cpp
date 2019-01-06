@@ -56,7 +56,7 @@ int insert(char str[]) {
 int main() {
   int i, n, h;
   char str[L], com[9];
-  for( i = 0; i<M;i++) H[i][0] = '0';
+  for( i = 0; i<M;i++) H[i][0] = '/0';
   scanf("%d", &n);
   for( i = 0; i < n; i++) {
     scanf("%s %s", com, str);
