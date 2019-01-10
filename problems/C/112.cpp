@@ -21,7 +21,7 @@ int main(){
 					}else if(l == N-1){
 						cout << cx << " " << cy << " " << ch << endl;
 						return 0;
-					}
+					}　
 				}
 			}
 		}
