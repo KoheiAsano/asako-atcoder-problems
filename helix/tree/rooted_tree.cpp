@@ -12,7 +12,7 @@ void print(int u) {
 	int i,c;
 	cout << "node " << u << ": ";
 	cout << "parent = " << T[u].p << ", ";
-	cout << "deth = " << D[u] << ", ";
+	cout << "depth = " << D[u] << ", ";
 
 	if (T[u].p == NIL) cout << "root, ";
 	else if( T[u].l == NIL ) cout << "leaf, ";
