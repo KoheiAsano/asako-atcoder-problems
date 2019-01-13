@@ -17,6 +17,12 @@ double N;
 double ans=0;
 const int INF = 2000000000;
 
+void swap(int& a, int& b){
+	int tmp = a;
+	a = b;
+	b = tmp;
+}
+
 int main(){
 	cin >> N;
 	FOR(i,1,N+1){
