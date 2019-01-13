@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main(){
-	int max=2147483647;
+	int max=2147483647;//2.1*10^9
 	int min=-2147483648;
 	long long maxll = 9223372036854775807;
 	long long minll = -9223372036854775808;
