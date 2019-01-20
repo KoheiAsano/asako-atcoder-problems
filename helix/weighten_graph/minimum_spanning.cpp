@@ -14,7 +14,7 @@ int prim() {
   int d[MAX], p[MAX], color[MAX];
 
   for (int i = 0; i < n; i++) {
-    d[i] = INFTY;
+    d[i] = INFTY;//各Nodeを連結しようとした時にかかる最小値(連結済みのNode依存)
     p[i] = -1;
     color[i] = WHITE;
   }
@@ -24,19 +24,19 @@ int prim() {
   while ( 1 ) {
     minv = INFTY;
     u = -1;
-    for (int i =0; i<n; i++) {
+    for (int i =0; i<n; i++) {//次のステップで連結するNodeの決定
       if (minv > d[i] && color[i] != BLACK) {
         u = i;
         minv = d[i];
       }
     }
     if ( u == -1) break;
-    color[u] = BLACK;
-    for (int v = 0; v < n; v++) {
+    color[u] = BLACK;//連結
+    for (int v = 0; v < n; v++) {//連結したあとの、連結されてる点から、追加しようとした時の最小値をdに記録
       if ( color[v] != BLACK && M[u][v] != INFTY) {
         if (d[v] > M[u][v]) {
           d[v] = M[u][v];
-          p[v] = u;
+          p[v] = u;//vと繋がったNodeをのちのために記録　
           color[v] = GRAY;
         }
       }
