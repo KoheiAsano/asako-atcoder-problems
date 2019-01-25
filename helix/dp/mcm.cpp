@@ -11,9 +11,9 @@ int main(){
 	}
 	for( int l = 2; l <= n; l++) {//行列の積の数
 		for (int i = 1; i<= n - l + 1;i++) {
-			int j = i + l - 1;
+			int j = i + l - 1;//iに対してl離れた行列のIndex
 			m[i][j] = (1 << 21);
-			for (int k = i; k<= j - 1; k++) {
+			for (int k = i; k<= j - 1; k++) {//積の分割点=k
 				m[i][j] = min(m[i][j], m[i][k] + m[k+1][j] + p[i - 1] * p[k] * p[j]);
 			}
 		}
