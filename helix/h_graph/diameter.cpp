@@ -3,14 +3,14 @@ using namespace std;
 static const int MAX = 100000;
 static const int INFTY = (1<<30);
 
-class Edge {
+class Edge {//コンストラクタしかないただの構造体mdk
 public:
   int t, w;
   Edge(){}
   Edge(int t, int w): t(t), w(w) {}
 };
 
-vector<Edge> G[MAX];
+vector<Edge> G[MAX];//隣接リスト
 int n, d[MAX];
 
 bool vis[MAX];
@@ -24,10 +24,10 @@ void bfs(int s){
     int u;
     while( !Q.empty()) {
         u = Q.front(); Q.pop();
-        for(int i =0; i < G[u].size(); i++) {
+        for(int i =0; i < G[u].size(); i++) {//uに隣接するものでFor
             Edge e = G[u][i];
-            if (d[e.t] == INFTY) {
-                d[e.t] = d[u] + e.w;
+            if (d[e.t] == INFTY) {//未探索なら
+                d[e.t] = d[u] + e.w;//現在のコスト＋u to eのコスト
                 Q.push(e.t);
             }
         }
@@ -35,7 +35,7 @@ void bfs(int s){
 }
 
 void solve(){
-    bfs(0);
+    bfs(0);//0から最も遠いものを求める
     int maxv = 0;
     int tgt = 0;
     for (int i = 0; i < n; i++) {
