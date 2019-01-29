@@ -13,7 +13,7 @@ public:
   }
 
   void makeSet(int x) {
-    p[x] = x;
+    p[x] = x;//pは要素に対してunique
     rank[x] = 0;
   }
 
@@ -21,12 +21,12 @@ public:
     return findSet(x) == findSet(y);
   }
 
-  void unite(int x, int y) {
+  void unite(int x, int y) {//親と親でlink
     link(findSet(x), findSet(y));
   }
   void link(int x, int y) {
     if (rank[x] > rank[y]) {
-      p[y] = x;
+      p[y] = x;//rankが高い方にpをあわせる
     } else {
       p[x] = y;
       if (rank[x] == rank[y]) {
@@ -34,7 +34,7 @@ public:
       }
     }
   }
-  int findSet(int x) {
+  int findSet(int x) {//親のIdを返す
     if (x != p[x]) {
       p[x] = findSet(p[x]);
     }
