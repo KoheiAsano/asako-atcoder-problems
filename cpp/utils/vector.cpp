@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
+// ;
 void print(vector<double> V) {
   for(int i=0;i<V.size();i++){
     cout << V[i] << " ";
@@ -28,6 +31,7 @@ int main() {
   cout << S.size() << endl;
   S.insert(S.begin() + 4,9);//O(n)
   print(S);
+  sort(S.begin(),S.begin() + S.size());
   S.erase(S.begin() + 1);//O(n)
   print(S);
 }
