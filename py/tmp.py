@@ -3,4 +3,5 @@ import sys
 # N = int(input())
 # a = [int(input()) for _ in range(N)]
 # S = str(input())
+# L = len(S)
 # T = str(input())
