@@ -1,13 +1,14 @@
 import sys
-# N,M = [int(n) for n in input().split()]
+# A,B,C = [int(n) for n in input().split()]
+# N = int(input())
+# a = [int(input()) for _ in range(N)]
 S = str(input())
+# L = len(S)
 # T = str(input())
-if (not "B" in S) or (not "W" in S):
-    print(0)
-    sys.exit()
-
-changecount = 0
-for i in range(1,len(S)):
-    if(S[i] != S[i-1]):
-        changecount+=1
-print(changecount)
+ans = 0
+prev = S[0]
+for s in S:
+    if(s != prev):
+        ans+=1
+    prev = s
+print(ans)
