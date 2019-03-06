@@ -1,13 +1,8 @@
 def gcd(a,b):#greatest common divisor
     if (a<b):
-        tmp = a
-        a = b
-        b = tmp
-    r = 10
-    while(r>0):
-        r = a%b
-        a = b
-        b = r
+        a,b = b,a
+    while(b>0):
+        a,b = b ,a%b
     return a
 print(gcd(17,42))
 print(gcd(42,17))
