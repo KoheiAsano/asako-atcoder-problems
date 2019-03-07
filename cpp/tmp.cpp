@@ -1,13 +1,14 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-int N,K;
+using namespace std;
+int N;
 
 int main(){
-	cin >> N >> K;
-	int A[N];
-	for(int i=0;i<N;i++){
-		cin >> A[i];
-	}
+	cin >> N;
+	// int A[N];
+	// for(int i=0;i<N;i++){
+	// 	cin >> A[i];
+	// }
 	cout << "Hello, world" << endl;
+
 }
