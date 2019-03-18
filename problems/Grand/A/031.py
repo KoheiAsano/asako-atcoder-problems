@@ -1,4 +1,5 @@
 from sys import exit
+MOD = 10**9 + 7
 L = int(input())
 # a = [int(input()) for _ in range(N)]
 S = str(input())
@@ -11,4 +12,4 @@ for s in S:
 ans =1
 for d in dic.keys():
     ans*=dic[d]+1
-print(ans-1)
+print((ans-1)%MOD)
