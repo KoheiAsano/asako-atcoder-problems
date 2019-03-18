@@ -1,3 +1,4 @@
+#How to use: make N=XXX  make cpp N=XXX
 py:
 ifdef N
 	touch {A..D}/${N}.py
