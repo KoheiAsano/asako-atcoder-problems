@@ -1,18 +1,19 @@
-import sys
+from sys import exit
+import math
 N = int(input())
-
-a = [int(n) for n in input().split()]
-
 dic = {}
-for ak in a:
-    if not(ak in dic):
-        dic[ak] = 1
+a = [int(n) for n in input().split()]
+for e in a:
+    if e in dic:
+        dic[e]+=1
     else:
-        dic[ak] += 1
+        dic[e] = 1
 ans = 0
 for k in dic.keys():
-    if(dic[k] - k > 0):
-        ans+=dic[k] - k
-    elif(dic[k] - k < 0):
+    if k < dic[k]:
+        ans+=dic[k]-k
+    elif k > dic[k]:
         ans+=dic[k]
+    else:
+        continue
 print(ans)
