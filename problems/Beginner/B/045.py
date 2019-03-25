@@ -1,37 +1,35 @@
-import sys
-SA = str(input())
-SB = str(input())
-SC = str(input())
+from sys import exit
+# A,B,C = [int(n) for n in input().split()]
+Sa = list(input())
+Sb = list(input())
+Sc = list(input())
 turn = "A"
-while (1):
-    if( turn == "A"):
-        if SA == "":
-            break
-        if SA[0] == "a":
-            turn = "A"
-        elif SA[0] == "b":
-            turn = "B"
+while(True):
+    if turn == "A":
+        if(Sa != []):
+            turn = Sa[0].upper()
+            del Sa[0]
         else:
-            turn = "C"
-        SA = SA[1:]
-    elif( turn == "B"):
-        if SB == "":
-            break
-        if SB[0] == "a":
-            turn = "A"
-        elif SB[0] == "b":
-            turn = "B"
+            print("A")
+            exit()
+    elif turn == "B":
+        if(Sb != []):
+            turn = Sb[0].upper()
+            del Sb[0]
         else:
-            turn = "C"
-        SB = SB[1:]
+            print("B")
+            exit()
     else:
-        if SC == "":
-            break
-        if SC[0] == "a":
-            turn = "A"
-        elif SC[0] == "b":
-            turn = "B"
+        if(Sc != []):
+            turn = Sc[0].upper()
+            del Sc[0]
         else:
-            turn = "C"
-        SC = SC[1:]
-print(turn)
+            print("C")
+            exit()
+
+# N = int(input())
+# a = [int(input()) for _ in range(N)]
+# S = str(input())
+# L = len(S)
+# T = str(input())
+exit()

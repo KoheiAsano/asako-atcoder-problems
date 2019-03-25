@@ -1,17 +1,18 @@
-# N,M = [int(n) for n in input().split()]
-# S = str(input())
-# T = str(input())
-S = [s for s in str(input())] # ['1', '2', '5']
-
-sum =0
-for bit in range(1 << len(S) -1):
-    l = []
-    tmpS = [s for s in S]
-    for i in range(len(S) -1):
-        if(bit & (1 << i)):
-            l.append(i)
-    for i in l:
-        tmpS[i] += "+"
-    sum+=eval("".join(tmpS))
-
-print(sum)
+S = list(input())
+N = len(S)
+ans = 0
+for pt in range((1 << (N-1))):#1 == 線あり 0 == 線なし　とする
+    # if "11" in bin(pt): continue
+    tmpS = S.copy()
+    # v = []
+    inscnt = 1
+    for i in range(N-1):
+        if (1 << i) & pt:
+            tmpS.insert(i+inscnt,'+')
+            inscnt+=1
+    # print(tmpS)
+    tmpsum=eval("".join(tmpS))
+    # print(tmpsum)
+    ans+=tmpsum
+    # print(v)
+print(ans)
