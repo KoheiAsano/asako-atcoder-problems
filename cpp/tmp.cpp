@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#define debug(x) cerr << #x << ": " << x << endl;
 using namespace std;
 int N;
 
@@ -10,5 +10,5 @@ int main(){
 	// 	cin >> A[i];
 	// }
 	cout << "Hello, world" << endl;
-
+	debug(N);
 }
