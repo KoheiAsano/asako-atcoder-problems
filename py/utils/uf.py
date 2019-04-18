@@ -28,6 +28,7 @@ class UnionFind():
                 self.table[s2] = s1
         return
 UF = UnionFind(9)
+print(UF)
 UF.union(0,1)
 print(UF.table)
 UF.union(4,5)

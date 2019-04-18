@@ -1,3 +1,4 @@
+from sys import exit
 class UnionFind():
     #負の値は根で集合の個数
     #正の値は次の要素を返す
@@ -10,10 +11,6 @@ class UnionFind():
         root = self.find(self.table[x])
         self.table[x] = root
         return root
-        # while self.table[x] >= 0:
-        #     #根に来た時,self.table[根のindex]は負の値なのでx = 根のindexで値が返される。
-        #     x = self.table[x]
-        # return x
 
     #併合
     def union(self,x,y):
@@ -28,22 +25,17 @@ class UnionFind():
                 self.table[s2] = s1
         return
     def size(self,x):
-        # while self.table[x] >= 0:
-        #     #根に来た時,self.table[根のindex]は負の値なのでx = 根のindexで値が返される。
-        #     x = self.table[x]
         return -self.table[self.find(x)]
-UF = UnionFind(9)
-UF.union(0,1)
-print(UF.table)
-print(UF.size(1))
-print(UF.size(0))
-print(UF.size(4))
-UF.union(4,5)
-print(UF.table)
-UF.union(7,8)
-print(UF.table)
-UF.union(1,7)
-print(UF.size(8))
-print(UF.table)
-UF.find(8)
-print(UF.table)
+
+N,M = [int(n) for n in input().split()]
+p = [int(n) for n in input().split()]
+
+UF = UnionFind(N)
+for _ in range(M):
+    x,y = [int(n)-1 for n in input().split()]
+    UF.union(x,y)
+ans = 0
+for i in range(N):
+    if UF.find(i) == UF.find(p[i]-1):
+        ans+=1
+print(ans)
