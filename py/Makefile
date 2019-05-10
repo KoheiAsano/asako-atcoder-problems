@@ -1,4 +1,4 @@
 tmp: tmp.py
-		python3 tmp.py 
+		pypy3 tmp.py
 in :
-		python3 tmp.py < input.txt
+		pypy3 tmp.py < input.txt
