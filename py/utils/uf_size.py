@@ -28,6 +28,7 @@ class UnionFind():
                 self.table[s1] += self.table[s2]
                 self.table[s2] = s1
         return
+
     def size(self, x):
         # while self.table[x] >= 0:
         #     #根に来た時,self.table[根のindex]は負の値なのでx = 根のindexで値が返される。
@@ -41,11 +42,11 @@ print(UF.table)
 print(UF.size(1))
 print(UF.size(0))
 print(UF.size(4))
-UF.union(4,5)
+UF.union(4, 5)
 print(UF.table)
-UF.union(7,8)
+UF.union(7, 8)
 print(UF.table)
-UF.union(1,7)
+UF.union(1, 7)
 print(UF.size(8))
 print(UF.table)
 UF.find(8)
