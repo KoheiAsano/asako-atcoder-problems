@@ -16,7 +16,7 @@ def bfs(s):
     q = deque()
     q.append(s)
     D[s[0]][s[1]] = 1
-    while(not q.empty()):
+    while(len(q) != 0):
         u = q.pop()
         for d in dxy:
             v = [u[0] + d[0], u[1] + d[1]]
