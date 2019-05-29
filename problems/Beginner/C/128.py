@@ -5,7 +5,7 @@ for i in range(M):
     ss[i] = set([int(n)-1 for n in input().split()][1:])
 p = [int(n) for n in input().split()]
 ans = 0
-for pt in range((1 << N)):#1 == 線あり 0 == 線なし　とする
+for pt in range((1 << N)):# 1 == 線あり 0 == 線なし　とする
     each = [0]*M
     for i in range(N):
         if (1 << i) & pt:
@@ -18,5 +18,5 @@ for pt in range((1 << N)):#1 == 線あり 0 == 線なし　とする
         if each[i]%2 != p[i]:
             OK = False
     if OK:
-        ans+=1
+        ans += 1
 print(ans)
