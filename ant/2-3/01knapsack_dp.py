@@ -13,7 +13,7 @@ for cur in range(n-1, -1, -1):
         if cap < w[cur]:
             memo[cur][cap] = memo[cur+1][cap]
         else:
-            memo[cur][cap] = max(memo[cur+1][cap - w[cur]] + v[cur], memo[cur+1][cap])
+            memo[cur][cap] = max(memo[cur+1][cap-w[cur]]+v[cur], memo[cur+1][cap])
 print(memo[0][W])
 
 # for i in range(n):
