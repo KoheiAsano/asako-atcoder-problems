@@ -15,9 +15,21 @@ def modinv(a, m):
     return u
 
 
+def inverse(a, m):
+    t, next_t = 0, 1
+    r, next_r = m, a
+    while next_r != 0:
+        q = r // next_r
+        t, next_t = next_t, t - q * next_t
+        r, next_r = next_r, r - q * next_r
+    if t < 0:
+        t += m
+    return t
+
 MOD = 1000000007
 a = 12345678900000
 b = 100000
 print(a//b)
 a %= MOD
 print(a * modinv(b, MOD) % MOD)
+print(a * inverse(b, MOD) % MOD)
