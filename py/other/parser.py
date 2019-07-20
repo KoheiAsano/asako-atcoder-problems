@@ -1,52 +1,63 @@
 from inspect import currentframe
 from sys import exit, stderr
-src = list(str(input()))
-tokens = [tok for tok in src if tok != " "]
 
-def debug(*args):
-    names = {id(v):k for k,v in currentframe().f_back.f_locals.items()}
-    print(', '.join(names.get(id(arg),'???') + str(id(arg)) +' = '+repr(arg) for arg in args), file=stderr)
-print(tokens)
-# "" as EOF
-tokens.append("")
+tokens = []
 cur = 0
+# def debug(*args):
+#     names = {id(v):k for k,v in currentframe().f_back.f_locals.items()}
+#     print(', '.join(names.get(id(arg),'???') + str(id(arg)) +' = '+repr(arg) for arg in args), file=stderr)
 def parse_expr():
-    global cur
-    if tokens[cur] is "":
+    global cur, tokens
+    if tokens[cur] == "":
         return
     lhs = parse_mul()
-    if tokens[cur] is "+":
-        cur += 1
-        lhs += parse_expr()
-    elif tokens[cur] is "-":
-        cur += 1
-        lhs -= parse_expr()
-    debug(lhs, cur)
+    while(tokens[cur] == "+" or tokens[cur] == "-"):
+        if tokens[cur] == "+":
+            cur += 1
+            lhs += parse_mul()
+        elif tokens[cur] == "-":
+            cur += 1
+            lhs -= parse_mul()
+        # debug(lhs, cur)
     return lhs
 
 def parse_mul():
-    global cur
+    global cur, tokens
     lhs = parse_term()
-    if tokens[cur] is "*":
-        cur += 1
-        lhs *= parse_mul()
-    elif tokens[cur] is "/":
-        cur += 1
-        lhs /= parse_mul()
-    # debug(lhs, cur)
+    while(tokens[cur] == "*" or tokens[cur] == "/"):
+        if tokens[cur] == "*":
+            cur += 1
+            lhs *= parse_term()
+        elif tokens[cur] == "/":
+            cur += 1
+            divisor = parse_term()
+            if lhs < 0 and lhs % divisor != 0:
+                lhs //= divisor
+                lhs += 1
+            else:
+                lhs //= divisor
     return lhs
 
 def parse_term():
-    global cur
+    global cur, tokens
     if tokens[cur].isdigit():
         lhs = int(tokens[cur])
         cur += 1
-    elif tokens[cur] is "(":
+        while(tokens[cur].isdigit()):
+            lhs *= 10
+            lhs += int(tokens[cur])
+            cur += 1
+    elif tokens[cur] == "(":
         cur += 1
         lhs = parse_expr()
-        if tokens[cur] != ")":
-            raise Exception("not closed")
         cur += 1
     return lhs
 
+src = list(str(input()))
+tokens = [tok for tok in src if tok != " "]
+
+# "" as EOF
+tokens.append("")
+
+cur = 0
 print(parse_expr())
