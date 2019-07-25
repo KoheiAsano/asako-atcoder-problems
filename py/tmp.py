@@ -1,9 +1,7 @@
-# from sys import exit, stderr
-# from inspect import currentframe
-# def debug(*args):
-#     names = {id(v):k for k,v in currentframe().f_back.f_locals.items()}
-#     print(', '.join(names.get(id(arg),'???')+' = '+repr(arg) for arg in args), file=stderr)
-#     return
+from sys import exit, stderr
+def debug(var, name="hoge"):
+    print(name + str(id(var)) +" = " + repr(var), file=stderr)
+    return
 # A, B, C = [int(n) for n in input().split()]
 # N = int(input())
 # a = [int(input()) for _ in range(N)]
