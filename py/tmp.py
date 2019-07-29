@@ -1,6 +1,6 @@
 from sys import exit, stderr
 def debug(var, name="hoge"):
-    print(name + str(id(var)) +" = " + repr(var), file=stderr)
+    print(name +":" + str(type(var)) + " = " + repr(var), file=stderr)
     return
 # A, B, C = [int(n) for n in input().split()]
 # N = int(input())
