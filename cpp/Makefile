@@ -1,5 +1,5 @@
 tmp: tmp.cpp
-		g++ tmp.cpp -o tmp
+		g++ -std=c++14 tmp.cpp -o tmp
 		./tmp
 		rm tmp
 in: tmp.cpp
