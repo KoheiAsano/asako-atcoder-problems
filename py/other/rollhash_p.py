@@ -22,7 +22,7 @@ def main():
         power[n] = power[n-1] * base % MOD
         power_inv[n] = power_inv[n-1] * base_inv % MOD
     def rollhash(s):
-        res = [0]
+        res = [0]*(len(s)+1)
         for i in range(len(s)):
             res[i+1] = (res[i] + power[i] * ord(s[i])) % MOD
         return res
