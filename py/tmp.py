@@ -3,12 +3,12 @@ input = stdin.readline
 # setrecursionlimit(10**7)
 
 def debug(var, name="hoge"):
-    print(name +":" + str(type(var)) + " = " + repr(var), file=stderr)
+    print(str(type(var)) + name +":" + " = " + repr(var), file=stderr)
     return
 
 
 def main():
-    A, B, C = [int(n) for n in input().split()]
+    A, B, C = list(map(int,input().split()))
     print(A,B,C)
     # N = int(input())
     # a = [int(input()) for _ in range(N)]
